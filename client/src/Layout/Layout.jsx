@@ -4,15 +4,19 @@ import Header from "./Header";
 const Layout = ({ children }) => {
     return (
         <>
-        
-              <Header />
+           <div className="w-full h-full absolute bg-gradient-to-r from-blue-400 to-emerald">
+
+           <Header />
            
-                 <main className="min-h-[80vh]">
-                    {children}
-                 </main>
-            
-                <Footer />
-           
+           <main className="min-h-[80vh]">
+              {children}
+           </main>
+      
+          <Footer />
+     
+
+           </div>
+              
         </>
     );
 };
