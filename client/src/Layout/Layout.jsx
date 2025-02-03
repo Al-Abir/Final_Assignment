@@ -1,3 +1,4 @@
+import BioData from "../components/BioData";
 import Footer from "./Footer";
 import Header from "./Header";
 
@@ -8,6 +9,7 @@ const Layout = ({ children }) => {
 
            <Header />
            
+          
            <main className="min-h-[80vh] mt-8">
               {children}
            </main>
