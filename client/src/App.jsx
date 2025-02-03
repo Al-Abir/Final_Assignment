@@ -6,6 +6,7 @@ import Projects from './pages/Projects.jsx'
 import Contact from './pages/Contact.jsx'
 import Services from './pages/Services.jsx'
 import Blog from './pages/Blog.jsx'
+import Testimonials from './pages/Testimonials.jsx'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/projects" element={<Projects/>} />
         <Route path="/blog" element={<Blog/>} />
         <Route path="/services" element={<Services />} />
+        <Route path='testimonials' element={<Testimonials></Testimonials>}/>
         <Route path="/contact" element={<Contact />} />
       </Routes>
     </BrowserRouter>

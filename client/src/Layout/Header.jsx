@@ -19,6 +19,7 @@ const Header = () => {
                 <NavLink to='/projects'className="p-3 hover:bg-sky-400 hover:text-white rounded-md transition-all coursor-pointer">Projects</NavLink>
                 <NavLink to='/blog'className="p-3 hover:bg-sky-400 hover:text-white rounded-md transition-all coursor-pointer">Blog</NavLink>
                 <NavLink to='/services'className="p-3 hover:bg-sky-400 hover:text-white rounded-md transition-all coursor-pointer">Services</NavLink>
+                <NavLink to='/testimonials'className="p-3 hover:bg-sky-400 hover:text-white rounded-md transition-all coursor-pointer">Testimonials</NavLink>
             </ul>
 
             <div>
@@ -34,6 +35,7 @@ const Header = () => {
                 <NavLink to='/projects'className="list-none w-full text-center p-4 hover:bg-sky-700 hover:text-white transition-all cursor-pointer">Projects</NavLink>
                 <NavLink to='/blog'className="list-none w-full text-center p-4 hover:bg-sky-700 hover:text-white transition-all cursor-pointer">Blog</NavLink>
                 <NavLink to='/services'className="list-none w-full text-center p-4 hover:bg-sky-700 hover:text-white transition-all cursor-pointer">Services</NavLink>
+                <NavLink to='/testimonials'className="list-none w-full text-center p-4 hover:bg-sky-700 hover:text-white transition-all cursor-pointer">Testimonials</NavLink>
                 <NavLink to='/contact' className="list-none w-full text-center p-4 hover:bg-sky-700 hover:text-white transition-all cursor-pointer">Contact</NavLink>
 
             </div>
