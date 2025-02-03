@@ -2,7 +2,7 @@
 
 const Footer = () => {
     return (
-        <div>
+        <div className="container mx-auto text-center">
             <h2>footer</h2>
         </div>
     );

@@ -14,7 +14,7 @@ const BioData = () => {
         window.open('https://drive.google.com/file/d/1kBYl3xtH8FWW3EXQqvpJjsqYgxZ-Q6R4/view', '_blank');
     };
     return (
-        <div className="flex flex-col rounded-[20px]">
+        <div className="flex flex-col rounded-[20px] ">
             <div className='flex justify-center '>
                 <img src={abir} alt="" className='w-[200px] rounded-xl mx-auto mt-[30px]' />
 

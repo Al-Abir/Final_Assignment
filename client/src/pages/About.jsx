@@ -3,7 +3,10 @@ const About = () => {
     return (
       
             <Layout>
-                <h2>this is About page</h2>
+                <div className="container mx-auto">
+                    <h1>hdlllp</h1>
+
+                </div>
             </Layout>
         
         

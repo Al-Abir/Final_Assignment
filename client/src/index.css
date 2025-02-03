@@ -5,3 +5,7 @@
 .body {
     @apply bg-[#4e4e4c];
 }
+
+.container{
+    @apply  xl:w-[1200px]
+}
