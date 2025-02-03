@@ -4,11 +4,11 @@ import Header from "./Header";
 const Layout = ({ children }) => {
     return (
         <>
-           <div className="w-full h-full absolute bg-gradient-to-r from-blue-400 to-emerald">
+           <div className="w-full h-full absolute">
 
            <Header />
            
-           <main className="min-h-[80vh]">
+           <main className="min-h-[80vh] mt-8">
               {children}
            </main>
       
