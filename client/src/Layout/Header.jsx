@@ -6,7 +6,7 @@ import { useState } from "react";
 const Header = () => {
     const[isMenuOpen, setisMenuOpen] = useState(false);
     return (
-        <div className="w-[460px] p-10 mx-auto md:w-[900px] lg:w-[1024px] xl:w-[1280px] ">
+        <div className="w-[460px] p-5 mx-auto md:w-[900px] lg:w-[1024px] xl:w-[1280px] ">
 
 
             <div className="flex justify-between items-center  text-[#919295] py-6 px-8 md:px-32  bg-[#1D1C22] rounded-md">
@@ -29,12 +29,12 @@ const Header = () => {
             </i>
             <div className={`absolute md:hidden top-24 left-0 w-full bg-white flex flex-col items-center gap-6 font-semibold text-lg transform transition-transform ${isMenuOpen ? "opacity-100": "opacity-0"}`}
             style={{transition: "transform 0.3s ease, opacity 0.3s ease"}}>
-                <NavLink to='/' className=" w-full text-center p-4 hover:bg-sky-400 hover:text-white transition-all cursor-pointer">Home</NavLink>
-                <NavLink to='/about'className=" w-full text-center p-4 hover:bg-sky-400 hover:text-white transition-all cursor-pointer">About</NavLink>
-                <NavLink to='/projects'className="list-none w-full text-center p-4 hover:bg-sky-400 hover:text-white transition-all cursor-pointer">Projects</NavLink>
-                <NavLink to='/blog'className="list-none w-full text-center p-4 hover:bg-sky-400 hover:text-white transition-all cursor-pointer">Blog</NavLink>
-                <NavLink to='/services'className="list-none w-full text-center p-4 hover:bg-sky-400 hover:text-white transition-all cursor-pointer">Services</NavLink>
-                <NavLink to='/contact' className="list-none w-full text-center p-4 hover:bg-sky-400 hover:text-white transition-all cursor-pointer">Contact</NavLink>
+                <NavLink to='/' className=" w-full text-center p-4 hover:bg-sky-700 hover:text-white transition-all cursor-pointer">Home</NavLink>
+                <NavLink to='/about'className=" w-full text-center p-4 hover:bg-sky-700 hover:text-white transition-all cursor-pointer">About</NavLink>
+                <NavLink to='/projects'className="list-none w-full text-center p-4 hover:bg-sky-700 hover:text-white transition-all cursor-pointer">Projects</NavLink>
+                <NavLink to='/blog'className="list-none w-full text-center p-4 hover:bg-sky-700 hover:text-white transition-all cursor-pointer">Blog</NavLink>
+                <NavLink to='/services'className="list-none w-full text-center p-4 hover:bg-sky-700 hover:text-white transition-all cursor-pointer">Services</NavLink>
+                <NavLink to='/contact' className="list-none w-full text-center p-4 hover:bg-sky-700 hover:text-white transition-all cursor-pointer">Contact</NavLink>
 
             </div>
         </div>
