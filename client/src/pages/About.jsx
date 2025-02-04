@@ -61,9 +61,9 @@ const About = () => {
 
                         {/* Dynamic Stats Section */}
 
-                        <div className="mt-5 flex md:flex-row">
-                            <div>
-
+                        <div className="mt-5 flex md:flex-row justify-center items-center">
+                            <div className="font-semibold text-[26px]">
+                                    <h2>Content More Add ...... </h2>
                             </div>
 
                         </div>
