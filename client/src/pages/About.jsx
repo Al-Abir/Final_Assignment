@@ -2,30 +2,90 @@ import Layout from "../Layout/Layout";
 import BioData from "../components/BioData";
 
 const About = () => {
+    const aboutData = {
+        title: "About Me",
+        description: `
+          Hi, I am Washeikh Al Abir. I am a Computer Science and Engineering graduate. I connect with inspiring individuals, learn from them, and share their insights to help others. I love programming, solving real-world problems, and researching new technologies. The process of learning makes it fun and exciting for me.
+        Some of the skills I have worked with include: Data Structures and Algorithms (Java) Web Development (Bootstrap, Tailwind, React JS, JavaScript, MySQL, Node.js, Express.js, MongoDB) Linux OS What I might lack in skills, I make up for with my determination to learn. Outside of tech, I am a food lover. I enjoy cricket and chess, and I have spent time at the movie theater with friends.
+        `, // Description as a multi-line string
+
+    };
+
+    const teamMembers = [
+        {
+            id: 1,
+            name: "Rifat",
+            role: "Full Stack Developer",
+            image: "https://i.ibb.co.com/x8cYjJbd/475352844-1301505631178789-8147960464594723514-n.jpg", // Replace with real image URL
+        },
+        {
+            id: 2,
+            name: "Nahian",
+            role: "Frontend Developer",
+            image: "https://i.ibb.co.com/q3YdvQWD/402928235-1519205871992121-843251453097138135-n.jpg",
+        },
+        {
+            id: 3,
+            name: "Tosher",
+            role: "Frontend Developer",
+            image: "https://i.ibb.co.com/svCsshQw/452922628-1894630937677337-4871837281337586891-n.jpg",
+        },
+    ];
+
+
+
+
     return (
         <Layout>
-            {/* Hero Section Container */}
-            <div className="container mx-auto flex flex-col lg:flex-col md:flex-col xl:flex-row gap-8">
-                {/* Left Section - BioData (1/4 on xl, full width on others) */}
-                <div className="w-full xl:w-1/4 border border-gray-300 p-4">
-                    <ul className="grid grid-cols-6 gap-8 grid-rows-6 grid-flow-row-dense">
-                        <li className="xl:w-[370px] xl:h-[736px] lg:w-[280px] lg:h-[650px]  
-                            md:w-[850px] md:h-[700px] w-[360px] h-[700px] mx-auto bg-[#1D1C22] 
-                            row-start-1 row-span-3 col-start-1 col-span-6 
-                            md:row-start-1 md:row-span-3 md:col-start-1 md:col-span-6 
-                            lg:row-start-1 lg:row-span-5 lg:col-start-1 lg:col-span-2 
-                            rounded-lg shadow-xl">
-                            <div className="h-24">
-                                <BioData />
+            <div className="container mx-auto py-10">
+                <div className="flex flex-col xl:flex-row gap-10">
+                    {/* Left Section - BioData */}
+                    <div className="w-full xl:w-1/4 flex justify-center">
+                        <div className="w-[370px] h-[736px] bg-[#1D1C22] rounded-lg shadow-xl p-4">
+                            <BioData />
+                        </div>
+                    </div>
+
+                    {/* Right Section - About Content */}
+                    <div className="xl:w-3/4 p-10 md:p-1  text-white rounded-lg shadow-xl mx-auto">
+
+                        <div className="bg-[#1D1C22] md:w-[850px] p-10 md:p-5 rounded-lg ">
+                            <h2 className="text-2xl font-semibold">{aboutData.title}</h2>
+
+                            {/* Dynamic About Description */}
+                            <div className="mt-4 space-y-2">
+                                <p className="text-gray-300">{aboutData.description}</p> {/* Render the description */}
                             </div>
-                        </li>
-                    </ul>
+                        </div>
+
+
+                        {/* Dynamic Stats Section */}
+
+                        <div className="mt-5 flex md:flex-row">
+                            <div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
                 </div>
 
-                {/* Right Section - Text (3/4 on xl, full width on others) */}
-                <div className="w-full xl:w-3/4 border border-indigo-600 p-10">
-                    <h2 className="text-xl font-semibold">hekkko</h2>
+
+         <section className="py-12 text-white">
+            <div className="container mx-auto text-center">
+                <h2 className="text-4xl font-bold mb-8">Meet Our Team</h2>
+                <div className="grid px-5 md:grid-cols-3 gap-8">
+                    {teamMembers.map((member) => (
+                        <div key={member.id} className="bg-gray-800 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+                            <img src={member.image} alt={member.name} className="w-24 h-24 mx-auto rounded-full mb-4" />
+                            <h3 className="text-xl font-semibold">{member.name}</h3>
+                            <p className="text-gray-400">{member.role}</p>
+                        </div>
+                    ))}
                 </div>
+            </div>
+        </section>
             </div>
         </Layout>
     );
