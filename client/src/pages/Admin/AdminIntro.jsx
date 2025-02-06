@@ -1,14 +1,37 @@
-import { Form, Input, Button } from 'antd'; // Import Input, Button from antd
-import { useSelector } from 'react-redux';
+import { Form, Input, Button } from 'antd'; 
+import { useDispatch, useSelector } from 'react-redux';
+import { Showloading, HideLoading } from '../../redux/rootSlice';
+import axios from 'axios';
+import { message } from 'antd';
 
 const AdminIntro = () => {
     const { portfolioData } = useSelector((state) => state.root);
+    const dispatch = useDispatch();
+
     if (!portfolioData || !portfolioData.intro) {
-        return <div>Loading...</div>; // You can show a loading state here
+        return <div>Loading...</div>; // Loading state
     }
 
-    const onFinish = (values) => {
-        console.log(values);
+    const onFinish = async (values) => {
+        try {
+            dispatch(Showloading());
+
+            const response = await axios.post('/api/v1/update-intro', {
+                ...values,
+                _id: portfolioData.intro._id
+            });
+
+            dispatch(HideLoading());
+
+            if (response.data.success) {
+                message.success(response.data.message);  // ✅ "messsage" -> "message"
+            } else {
+                message.error(response.data.message);
+            }
+        } catch (error) {
+            dispatch(HideLoading());
+            message.error(error.message);
+        }
     };
 
     return (
@@ -25,7 +48,7 @@ const AdminIntro = () => {
                 </Form.Item>
 
                 <div className="flex justify-end w-full">
-                    <Button type="submit"  className="px-10 py-2 bg-blue-400">
+                    <Button htmlType="submit" className="px-10 py-2 bg-blue-400">
                         Save
                     </Button>
                 </div>

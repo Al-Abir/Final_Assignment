@@ -1,6 +1,10 @@
 import { Tabs } from 'antd';  // Import Tabs component
 import AdminHeader from './AdminHeader';
 import AdminIntro from './AdminIntro';
+import AdminAbout from './AdminAbout';
+import AdminBlog from './AdminBlog';
+import AdminTeam from './AdminTeam'
+import AdminService from './AdminService';
 
 const { TabPane } = Tabs;
 
@@ -24,16 +28,16 @@ const Admin = () => {
            <AdminIntro></AdminIntro>
           </TabPane>
           <TabPane tab={<span style={tabLabelStyle}>About</span>} key="2">
-            Content of Tab Pane 2
+            <AdminAbout></AdminAbout>
           </TabPane>
           <TabPane tab={<span style={tabLabelStyle}>Blog</span>} key="3">
-            Content of Tab Pane 3
+           <AdminBlog></AdminBlog>
           </TabPane>
           <TabPane tab={<span style={tabLabelStyle}>Team</span>} key="4">
-            Content of Tab Pane 4
+           <AdminTeam></AdminTeam>
           </TabPane>
           <TabPane tab={<span style={tabLabelStyle}>Service</span>} key="5">
-            Content of Tab Pane 5
+            <AdminService></AdminService>
           </TabPane>
         </Tabs>
       </div>
