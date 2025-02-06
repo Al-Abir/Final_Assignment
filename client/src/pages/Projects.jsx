@@ -4,7 +4,7 @@ const Projects = () => {
     return (
         <Layout>
             <div className="container mx-auto">
-            <h2 className="text-[26px] text-white   "> this is project page</h2>
+            <h2 className="text-[36px] text-white   "> Coming Soon ....................</h2>
 
             </div>
         </Layout>

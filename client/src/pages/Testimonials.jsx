@@ -4,7 +4,9 @@ import Layout from "../Layout/Layout";
 const Testimonials = () => {
     return (
           <Layout>
-              <h2>Testmonials page</h2>
+              <div className="container mx-auto">
+                <h2 className="text-bold text-[24px] text-white">Updated Soon........................</h2>
+              </div>
 
           </Layout>
         

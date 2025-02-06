@@ -3,39 +3,16 @@ import Layout from "../Layout/Layout";
 import BioData from "../components/BioData";
 
 const About = () => {
-   
+    const { portfolioData } = useSelector((state) => state.root);
 
-    const {  portfolioData } = useSelector((state) => state.root);
-    // Ensure data exists before destructuring
-    if (!portfolioData || !portfolioData.intro) {
+    // Ensure data exists before rendering
+    if (!portfolioData || !portfolioData.about || !portfolioData.team) {
         return <div>Loading...</div>;
     }
-    const {about} = portfolioData;
-    const {title,description} = about
 
-    const teamMembers = [
-        {
-            id: 1,
-            name: "Rifat",
-            role: "Full Stack Developer",
-            image: "https://i.ibb.co.com/x8cYjJbd/475352844-1301505631178789-8147960464594723514-n.jpg", // Replace with real image URL
-        },
-        {
-            id: 2,
-            name: "Nahian",
-            role: "Frontend Developer",
-            image: "https://i.ibb.co.com/q3YdvQWD/402928235-1519205871992121-843251453097138135-n.jpg",
-        },
-        {
-            id: 3,
-            name: "Tosher",
-            role: "Frontend Developer",
-            image: "https://i.ibb.co.com/svCsshQw/452922628-1894630937677337-4871837281337586891-n.jpg",
-        },
-    ];
-
-
-
+    const { about, team } = portfolioData;
+    const { title, description } = about;
+    console.log(team)
 
     return (
         <Layout>
@@ -49,45 +26,42 @@ const About = () => {
                     </div>
 
                     {/* Right Section - About Content */}
-                    <div className="xl:w-3/4 p-10 md:p-1  text-white rounded-lg shadow-xl mx-auto">
-
-                        <div className="bg-[#1D1C22] md:w-[850px] p-10 md:p-5 rounded-lg ">
+                    <div className="xl:w-3/4 p-10 md:p-1 text-white rounded-lg shadow-xl mx-auto">
+                        <div className="bg-[#1D1C22] md:w-[850px] p-10 md:p-5 rounded-lg">
                             <h2 className="text-2xl font-semibold">{title}</h2>
-
-                            {/* Dynamic About Description */}
                             <div className="mt-4 space-y-2">
-                                <p className="text-gray-300">{description}</p> {/* Render the description */}
+                                <p className="text-gray-300">{description}</p>
                             </div>
                         </div>
-
 
                         {/* Dynamic Stats Section */}
-
                         <div className="mt-5 flex md:flex-row justify-center items-center">
                             <div className="font-semibold text-[26px]">
-                                    <h2>Content More Add ...... </h2>
+                                <h2>Content More Add ...... </h2>
                             </div>
-
                         </div>
-
                     </div>
                 </div>
 
-
-         <section className="py-12 text-white">
-            <div className="container mx-auto text-center">
-                <h2 className="text-4xl font-bold mb-8">Meet Our Team</h2>
-                <div className="grid px-5 md:grid-cols-3 gap-8">
-                    {teamMembers.map((member) => (
-                        <div key={member.id} className="bg-gray-800 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
-                            <img src={member.image} alt={member.name} className="w-24 h-24 mx-auto rounded-full mb-4" />
-                            <h3 className="text-xl font-semibold">{member.name}</h3>
-                            <p className="text-gray-400">{member.role}</p>
+                {/* Dynamic Team Section */}
+                <section className="py-12 text-white">
+                    <div className="container mx-auto text-center">
+                        <h2 className="text-4xl font-bold mb-8">Meet Our Team</h2>
+                        <div className="grid px-5 md:grid-cols-3 gap-8">
+                            {team.length > 0 ? (
+                                team.map((member, index) => (
+                                    <div key={index} className="bg-gray-800 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+                                        <img src={member.image} alt={member.name} className="w-24 h-24 mx-auto rounded-full mb-4" />
+                                        <h3 className="text-xl font-semibold">{member.name}</h3>
+                                        <p className="text-gray-400">{member.role}</p>
+                                    </div>
+                                ))
+                            ) : (
+                                <p className="text-gray-400">No team members available.</p>
+                            )}
                         </div>
-                    ))}
-                </div>
-            </div>
-        </section>
+                    </div>
+                </section>
             </div>
         </Layout>
     );

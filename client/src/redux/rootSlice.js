@@ -13,11 +13,11 @@ const rootSlice = createSlice({
     HideLoading: (state) => {
       state.loading = false;
     },
-    SetporffolioData: (state, action) => {
+    SetportfolioData: (state, action) => {
       state.portfolioData = action.payload;
     },
   },
 });
 
-export const { Showloading, HideLoading, SetporffolioData } = rootSlice.actions;
+export const { Showloading, HideLoading, SetportfolioData } = rootSlice.actions;
 export default rootSlice.reducer; // Correct export

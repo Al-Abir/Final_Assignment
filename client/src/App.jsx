@@ -9,7 +9,7 @@ import Testimonials from './pages/Testimonials.jsx';
 import { useEffect } from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import { SetporffolioData, Showloading, HideLoading } from './redux/rootSlice.js';
+import { SetportfolioData, Showloading, HideLoading } from './redux/rootSlice.js';
 
 function App() {
   const { loading, portfolioData } = useSelector((state) => state.root);
@@ -21,7 +21,7 @@ function App() {
     try {
       dispatch(Showloading()); // Set loading to true
       const response = await axios.get('/api/v1/portfolio-data');
-      dispatch(SetporffolioData(response.data));
+      dispatch(SetportfolioData(response.data));
     } catch (error) {
       console.error('Error fetching portfolio data:', error);
     } finally {
