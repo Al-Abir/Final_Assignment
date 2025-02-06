@@ -10,6 +10,7 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { SetportfolioData, Showloading, HideLoading } from './redux/rootSlice.js';
+import Admin from './pages/Admin/Admin.jsx';
 
 function App() {
   const { loading, portfolioData } = useSelector((state) => state.root);
@@ -29,19 +30,18 @@ function App() {
     }
   };
 
+
   useEffect(() => {
     getAlldata();
   }, []);
-
-  useEffect(() => {
-    console.log(portfolioData); // Log portfolioData from Redux store
-  }, [portfolioData]);
+  
 
   return (
     <BrowserRouter>
       {loading && <p>Loading...</p>}
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/admin" element={<Admin />} />
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/blog" element={<Blog />} />
