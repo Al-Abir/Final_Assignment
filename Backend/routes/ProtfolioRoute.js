@@ -16,9 +16,9 @@ router.get('/portfolio-data', async (req, res) => {
      res.status(200).send({
       intro: intros[0],
       about: abouts[0],
-      service: services[0],
-      team : teams[0],
-      blog: blogs[0]
+      service: services,
+      team : teams,
+      blog: blogs,
 
      })
 
