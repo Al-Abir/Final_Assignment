@@ -1,15 +1,17 @@
+import { useSelector } from "react-redux";
 import Layout from "../Layout/Layout";
 import BioData from "../components/BioData";
 
 const About = () => {
-    const aboutData = {
-        title: "About Me",
-        description: `
-          Hi, I am Washeikh Al Abir. I am a Computer Science and Engineering graduate. I connect with inspiring individuals, learn from them, and share their insights to help others. I love programming, solving real-world problems, and researching new technologies. The process of learning makes it fun and exciting for me.
-        Some of the skills I have worked with include: Data Structures and Algorithms (Java) Web Development (Bootstrap, Tailwind, React JS, JavaScript, MySQL, Node.js, Express.js, MongoDB) Linux OS What I might lack in skills, I make up for with my determination to learn. Outside of tech, I am a food lover. I enjoy cricket and chess, and I have spent time at the movie theater with friends.
-        `, // Description as a multi-line string
+   
 
-    };
+    const {  portfolioData } = useSelector((state) => state.root);
+    // Ensure data exists before destructuring
+    if (!portfolioData || !portfolioData.intro) {
+        return <div>Loading...</div>;
+    }
+    const {about} = portfolioData;
+    const {title,description} = about
 
     const teamMembers = [
         {
@@ -50,11 +52,11 @@ const About = () => {
                     <div className="xl:w-3/4 p-10 md:p-1  text-white rounded-lg shadow-xl mx-auto">
 
                         <div className="bg-[#1D1C22] md:w-[850px] p-10 md:p-5 rounded-lg ">
-                            <h2 className="text-2xl font-semibold">{aboutData.title}</h2>
+                            <h2 className="text-2xl font-semibold">{title}</h2>
 
                             {/* Dynamic About Description */}
                             <div className="mt-4 space-y-2">
-                                <p className="text-gray-300">{aboutData.description}</p> {/* Render the description */}
+                                <p className="text-gray-300">{description}</p> {/* Render the description */}
                             </div>
                         </div>
 
