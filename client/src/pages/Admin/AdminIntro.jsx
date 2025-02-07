@@ -24,7 +24,7 @@ const AdminIntro = () => {
             dispatch(HideLoading());
 
             if (response.data.success) {
-                message.success(response.data.message);  // ✅ "messsage" -> "message"
+                message.success(response.data.message); 
             } else {
                 message.error(response.data.message);
             }

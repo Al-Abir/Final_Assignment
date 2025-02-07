@@ -75,7 +75,214 @@ router.post('/update-about', async (req, res) => {
   }
 });
 
-// ** About API**
+// ** Team add API**
+router.post('/team-add', async (req, res) => {
+    try {
+        const newTeamMember = new team(req.body);
+        await newTeamMember.save();
+        res.status(200).send({
+            data: newTeamMember,
+            success: true,
+            message: "Team member added successfully",
+        });
+    } catch (error) {
+        res.status(500).send(error);
+    }   
+});
+
+
+router.put('/team-edit/:id', async (req, res) => {
+    try {
+        // URL থেকে id বের করা
+        const { id } = req.params;
+
+        // MongoDB-তে থাকা টিম মেম্বার খোঁজা ও আপডেট করা
+        const updatedTeamMember = await team.findByIdAndUpdate(id, req.body, { new: true });
+
+        // যদি মেম্বার না পাওয়া যায়
+        if (!updatedTeamMember) {
+            return res.status(404).send({ success: false, message: "Team member not found" });
+        }
+
+        res.status(200).send({
+            data: updatedTeamMember,
+            success: true,
+            message: "Team member updated successfully",
+        });
+    } catch (error) {
+        res.status(500).send(error);
+    }
+});
+
+router.delete('/team-delete/:id', async (req, res) => {
+    try {
+        // URL থেকে id বের করা
+        const { id } = req.params;
+
+        // MongoDB-তে থাকা টিম মেম্বার খোঁজা ও মুছে ফেলা
+        const deletedTeamMember = await team.findByIdAndDelete(id);
+
+        // যদি মেম্বার না পাওয়া যায়
+        if (!deletedTeamMember) {
+            return res.status(404).send({ success: false, message: "Team member not found" });
+        }
+
+        res.status(200).send({
+            success: true,
+            message: "Team member deleted successfully",
+        });
+    } catch (error) {
+        res.status(500).send(error);
+    }
+});
+
+// Blog api
+
+router.post('/blog-add', async (req, res) => {
+    try {
+        const newBlog = new blog(req.body);
+        await newBlog.save();
+        res.status(200).send({
+            data: newBlog,
+            success: true,
+            message: "Blog added successfully",
+        });
+    } catch (error) {
+        res.status(500).send({
+            success: false,
+            message: error.message,
+        });
+    }
+});
+
+// Edit an existing blog
+router.put('/blog-edit/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const updatedBlog = await blog.findByIdAndUpdate(id, req.body, { new: true });
+
+        if (!updatedBlog) {
+            return res.status(404).send({
+                success: false,
+                message: "Blog not found",
+            });
+        }
+
+        res.status(200).send({
+            data: updatedBlog,
+            success: true,
+            message: "Blog updated successfully",
+        });
+    } catch (error) {
+        res.status(500).send({
+            success: false,
+            message: error.message,
+        });
+    }
+});
+
+// Delete a blog
+router.delete('/blog-delete/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const deletedBlog = await blog.findByIdAndDelete(id);
+
+        if (!deletedBlog) {
+            return res.status(404).send({
+                success: false,
+                message: "Blog not found",
+            });
+        }
+
+        res.status(200).send({
+            success: true,
+            message: "Blog deleted successfully",
+        });
+    } catch (error) {
+        res.status(500).send({
+            success: false,
+            message: error.message,
+        });
+    }
+});
+
+
+// Add a new service
+router.post('/service-add', async (req, res) => {
+    try {
+        const { title, description, image } = req.body;
+        const newService = new service({ title, description, image });
+        
+        await newService.save();
+
+        res.status(200).send({
+            success: true,
+            message: "Service added successfully",
+            data: newService
+        });
+    } catch (error) {
+        res.status(500).send({
+            success: false,
+            message: "Something went wrong. Please try again.",
+            error: error.message
+        });
+    }
+});
+
+// Edit an existing service
+router.put('/service-edit/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const updatedService = await service.findByIdAndUpdate(id, req.body, { new: true });
+
+        if (!updatedService) {
+            return res.status(404).send({
+                success: false,
+                message: "Service not found"
+            });
+        }
+
+        res.status(200).send({
+            success: true,
+            message: "Service updated successfully",
+            data: updatedService
+        });
+    } catch (error) {
+        res.status(500).send({
+            success: false,
+            message: error.message
+        });
+    }
+});
+
+// Delete a service
+router.delete('/service-delete/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const deletedService = await service.findByIdAndDelete(id);
+
+        if (!deletedService) {
+            return res.status(404).send({
+                success: false,
+                message: "Service not found"
+            });
+        }
+
+        res.status(200).send({
+            success: true,
+            message: "Service deleted successfully"
+        });
+    } catch (error) {
+        res.status(500).send({
+            success: false,
+            message: error.message
+        });
+    }
+});
+
+module.exports = router;
+
+
 
 
 module.exports = router;

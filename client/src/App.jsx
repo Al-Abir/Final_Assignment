@@ -9,36 +9,42 @@ import Testimonials from './pages/Testimonials.jsx';
 import { useEffect } from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import { SetportfolioData, Showloading, HideLoading } from './redux/rootSlice.js';
+import { SetportfolioData, Showloading, HideLoading, ReloadData } from './redux/rootSlice.js';
 import Admin from './pages/Admin/Admin.jsx';
+import Loader from './components/Loader.jsx'; // Importing a custom loader component
 
 function App() {
-  const { loading, portfolioData } = useSelector((state) => state.root);
+  const { loading, portfolioData, reloadData } = useSelector((state) => state.root);
   const dispatch = useDispatch();
-
-
 
   const getAlldata = async () => {
     try {
-      dispatch(Showloading()); // Set loading to true
+      dispatch(Showloading()); 
       const response = await axios.get('/api/v1/portfolio-data');
       dispatch(SetportfolioData(response.data));
+      dispatch(ReloadData(false));
     } catch (error) {
       console.error('Error fetching portfolio data:', error);
     } finally {
-      dispatch(HideLoading()); // Set loading to false
+      dispatch(HideLoading()); 
     }
   };
 
+  useEffect(() => {
+    if (!portfolioData) {
+      getAlldata();
+    }
+  }, []); // Only run once on mount
 
   useEffect(() => {
-    getAlldata();
-  }, []);
-  
+    if (reloadData) {
+      getAlldata();
+    }
+  }, [reloadData]);
 
   return (
     <BrowserRouter>
-      {loading && <p>Loading...</p>}
+      {loading && <Loader />}  {/* Show Loader Component Instead of Plain Text */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/admin" element={<Admin />} />
