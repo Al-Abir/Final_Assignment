@@ -11,7 +11,7 @@ const AdminAbout = () => {
     const dispatch = useDispatch();
 
     if (!portfolioData || !portfolioData.about) {
-        return <div>Loading...</div>; // ✅ যদি portfolioData না আসে, লোডিং দেখাবে
+        return <div>Loading...</div>; 
     }
 
     const onFinish = async (values) => {

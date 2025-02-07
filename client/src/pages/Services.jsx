@@ -8,6 +8,8 @@ const Services = () => {
         return <div>loading.........</div>
     }
     const { service } = portfolioData
+    
+       
     return (
         <Layout>
             <div className="blog-section  py-12 container mx-auto bg-black">

@@ -5,7 +5,7 @@ const service = require('../Models/Sevice');
 const blog = require('../Models/Blog');
 const team = require('../Models/Team');
 
-// সব ডাটা আনতে API
+
 router.get('/portfolio-data', async (req, res) => {
     try {
         const intros = await Intro.find();
@@ -51,7 +51,7 @@ router.post('/update-intro', async (req, res) => {
 
 
 // **About Update API**
-// ✅ সঠিক মডেল
+
 
 router.post('/update-about', async (req, res) => {
   try {

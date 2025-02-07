@@ -12,7 +12,7 @@ const About = () => {
 
     const { about, team } = portfolioData;
     const { title, description } = about;
-    console.log(team)
+ 
 
     return (
         <Layout>
