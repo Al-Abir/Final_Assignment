@@ -22,6 +22,9 @@ const app = express();
 
 // Middleware
 app.use(express.json());
+app.get("/", (req, res) => {
+    res.send("Hello, Vercel!");
+});
 
 // API Routes
 app.use('/api/v1', portfolioRoutes);
