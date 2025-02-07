@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { SetportfolioData, Showloading, HideLoading, ReloadData } from './redux/rootSlice.js';
 import Admin from './pages/Admin/Admin.jsx';
 import Loader from './components/Loader.jsx'; // Importing a custom loader component
+import Login from './pages/Admin/Login.jsx';
 
 function App() {
   const { loading, portfolioData, reloadData } = useSelector((state) => state.root);
@@ -47,6 +48,7 @@ function App() {
       {loading && <Loader />}  {/* Show Loader Component Instead of Plain Text */}
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Projects />} />

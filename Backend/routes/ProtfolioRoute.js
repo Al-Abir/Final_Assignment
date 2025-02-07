@@ -4,6 +4,7 @@ const { Intro, About } = require('../Models/ProtfolioModel');
 const service = require('../Models/Sevice');
 const blog = require('../Models/Blog');
 const team = require('../Models/Team');
+const User = require('../Models/UserModel')
 
 
 router.get('/portfolio-data', async (req, res) => {
@@ -276,6 +277,33 @@ router.delete('/service-delete/:id', async (req, res) => {
         res.status(500).send({
             success: false,
             message: error.message
+        });
+    }
+});
+
+router.post("/admin-login", async (req, res) => {
+    try {
+        const user = await User.findOne({
+            username: req.body.username,
+            password: req.body.password
+        });
+
+        if (user) {
+            return res.status(200).send({
+                success: true,
+                message: "Login Successfully"
+            });
+        } else {
+            return res.status(400).send({
+                success: false,
+                message: "Invalid username or password"
+            });
+        }
+    } catch (error) {
+        res.status(500).send({
+            success: false,
+            message: "Server error",
+            error: error.message
         });
     }
 });
