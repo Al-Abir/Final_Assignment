@@ -11,8 +11,10 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { SetportfolioData, Showloading, HideLoading, ReloadData } from './redux/rootSlice.js';
 import Admin from './pages/Admin/Admin.jsx';
-import Loader from './components/Loader.jsx'; // Importing a custom loader component
+import Loader from './components/Loader.jsx'; 
 import Login from './pages/Admin/Login.jsx';
+
+
 
 function App() {
   const { loading, portfolioData, reloadData } = useSelector((state) => state.root);

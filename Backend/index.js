@@ -4,6 +4,7 @@ const dotenv = require('dotenv')
 
 const portfolioRoutes = require('./routes/ProtfolioRoute');
 const connectDB = require('./config/dbConfig');
+const cors  =require("cors");
 
 
 //configure env
@@ -22,6 +23,13 @@ const app = express();
 
 // Middleware
 app.use(express.json());
+
+app.use(cors({
+    origin: '*', // Allow all origins (replace with your frontend URL in production)
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  }));
+    
 app.get("/", (req, res) => {
     res.send("Hello, Vercel!");
 });
