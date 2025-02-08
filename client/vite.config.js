@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api/': {
-        target: "https://final-assignment-inky.vercel.app/", // Fix the missing "//" in "http://"
+        target: "https://final-assignment-inky.vercel.app/", 
         changeOrigin: true
       }
     }

@@ -29,13 +29,13 @@ app.use(cors({
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
   }));
-    
+
 app.get("/", (req, res) => {
     res.send("Hello, Vercel!");
 });
 
 // API Routes
-app.use('/api/v1', portfolioRoutes);
+app.use('https://final-assignment-inky.vercel.app/api/v1', portfolioRoutes);
 
 // Serve static files for the frontend
 app.use(express.static(path.join(__dirname, '../client', 'dist')));

@@ -11,7 +11,7 @@ const Login = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("/api/v1/admin-login", {
+            const response = await axios.post("https://final-assignment-inky.vercel.app/api/v1/admin-login", {
                 username,
                 password
             });

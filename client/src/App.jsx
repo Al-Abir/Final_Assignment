@@ -23,7 +23,7 @@ function App() {
   const getAlldata = async () => {
     try {
       dispatch(Showloading()); 
-      const response = await axios.get('/api/v1/portfolio-data');
+      const response = await axios.get('https://final-assignment-inky.vercel.app/api/v1/portfolio-data');
       dispatch(SetportfolioData(response.data));
       dispatch(ReloadData(false));
     } catch (error) {

@@ -16,7 +16,7 @@ const AdminIntro = () => {
         try {
             dispatch(Showloading());
 
-            const response = await axios.post('/api/v1/update-intro', {
+            const response = await axios.post('https://final-assignment-inky.vercel.app/api/v1/update-intro', {
                 ...values,
                 _id: portfolioData.intro._id
             });

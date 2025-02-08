@@ -24,8 +24,8 @@ const AdminTeam = () => {
             dispatch(Showloading());
 
             const url = selectedItemForEdit
-                ? `/api/v1/team-edit/${selectedItemForEdit._id}`
-                : '/api/v1/team-add';
+                ? `https://final-assignment-inky.vercel.app/api/v1/team-edit/${selectedItemForEdit._id}`
+                : 'https://final-assignment-inky.vercel.app/api/v1/team-add';
 
             const method = selectedItemForEdit ? 'put' : 'post';
 
@@ -50,7 +50,7 @@ const AdminTeam = () => {
     const onDelete = async (id) => {
         try {
             dispatch(Showloading());
-            const response = await axios.delete(`/api/v1/team-delete/${id}`);
+            const response = await axios.delete(`https://final-assignment-inky.vercel.app/api/v1/team-delete/${id}`);
             dispatch(HideLoading());
 
             if (response.data.success) {

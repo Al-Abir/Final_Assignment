@@ -18,11 +18,11 @@ const AdminService = () => {
         try {
             if (seletedItemforEidt) {
                 // Update existing service
-                await axios.put(`/api/v1/service-edit/${seletedItemforEidt._id}`, formData);
+                await axios.put(`https://final-assignment-inky.vercel.app/api/v1/service-edit/${seletedItemforEidt._id}`, formData);
                 alert("Service updated successfully");
             } else {
                 // Add new service
-                await axios.post("/api/v1/service-add", formData);
+                await axios.post("https://final-assignment-inky.vercel.app/api/v1/service-add", formData);
                 alert("Service added successfully");
             }
             setShowAddEditModel(false);
@@ -33,7 +33,7 @@ const AdminService = () => {
 
     const handleDeleteService = async (id) => {
         try {
-            await axios.delete(`/api/v1/service-delete/${id}`);
+            await axios.delete(`https://final-assignment-inky.vercel.app/api/v1/service-delete/${id}`);
             alert("Service deleted successfully");
         } catch (error) {
             alert("Error occurred: " + error.message);
